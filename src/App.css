@@ -1,1 +1,173 @@
-/* No CSS */
+.main {
+  padding: 1em;
+  background: var(--background);
+  width: calc(100vw - 2em);
+  height: calc(100vh - 2em);
+}
+
+.wrapper {
+  width: clamp(calc(500px - 2em), calc(100% - 2em), 750px);
+  margin: auto;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 2em 0;
+}
+
+header h1 {
+  margin: 0;
+}
+
+.screen {
+  background-color: var(--screen);
+  padding: 1em;
+  height: 90px;
+  border-radius: .5em;
+  margin-bottom: 2em;
+  position: relative;
+  text-align: end;
+}
+
+.screen .history {
+  position: absolute;
+  top: 0;
+  font-size: 1em;
+}
+
+.screen .query {
+  font-weight: 700;
+  font-size: 2.5em;
+  margin: .5em;
+  position: absolute;
+  right: .4em;
+}
+
+.keypad {
+  background-color: var(--blocks);
+  padding: 2em;
+  border-radius: .5em;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  gap: 1em 1em;
+}
+
+.keypad button {
+  background-color: var(--primary);
+  border: none;
+  color: var(--primary-text);
+  font-size: 2em;
+  font-weight: 700;
+  width: 100%;
+  height: 89px;
+  border-radius: .25em;
+  cursor: pointer;
+  -webkit-box-shadow: 0 5px var(--primary-dark);
+          box-shadow: 0 5px var(--primary-dark);
+}
+
+.keypad button:hover {
+  -webkit-transform: translateY(5px);
+          transform: translateY(5px);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.keypad .secondary {
+  background-color: var(--secondary) !important;
+  color: var(--secondary-text);
+  text-transform: uppercase;
+  font-size: 1.25em;
+  -webkit-box-shadow: 0 5px var(--secondary-dark);
+          box-shadow: 0 5px var(--secondary-dark);
+}
+
+.keypad .tertiary {
+  background-color: var(--tertiary) !important;
+  color: var(--tertiary-text);
+  text-transform: uppercase;
+  font-size: 1.25em;
+  -webkit-box-shadow: 0 5px var(--tertiary-dark);
+          box-shadow: 0 5px var(--tertiary-dark);
+}
+
+.keypad .reset {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1 / span 2;
+}
+
+.keypad .submit {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 2;
+  grid-column: 3 / span 2;
+}
+
+.Theme-toggler {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.Theme-toggler h2 {
+  font-size: 1em;
+  text-transform: uppercase;
+  margin: 0;
+  margin-right: 1.5em;
+}
+
+.Theme-toggler .Label-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 .5em;
+  margin-bottom: .25em;
+}
+
+.Theme-toggler .Label-wrapper .Label {
+  font-weight: 700;
+  font-size: .8em;
+}
+
+.Theme-toggler .Input-wrapper {
+  background: var(--blocks);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 1em;
+  padding: .25em;
+}
+
+.Theme-toggler .Input-wrapper .Input {
+  width: 1em;
+  height: 1em;
+  border-radius: 100%;
+  background: transparent;
+  margin: 0 .1em;
+  cursor: pointer;
+}
+
+.Theme-toggler .Input-wrapper .Input.active {
+  background: var(--secondary);
+}
