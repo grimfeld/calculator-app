@@ -1,3 +1,4 @@
+/* eslint-disable no-eval */
 import { useEffect, useState } from "react"
 import Button from "./components/Button"
 import { ThemeToggler } from "./components/ThemeToggler"
