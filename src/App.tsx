@@ -23,7 +23,10 @@ function App() {
   const [operands, setOperands] = useState<Array<string | number>>([])
 
   const append = (value: string) => setQuery(query.concat(value))
-  const del = () => setQuery(query.slice(0, -1))
+  const del = () => {
+    if (query === "") return
+    setQuery(query.slice(0, -1))
+  }
   const save = (operator: string) => {
     setOperands([...operands, query, operator])
     setQuery("")
