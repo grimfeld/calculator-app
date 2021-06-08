@@ -5,6 +5,11 @@ import { ThemeToggler } from "./components/ThemeToggler"
 import { ThemeContext } from "./contexts/Theme"
 import "./App.css"
 
+export const calc = (query: string) => {
+  if (typeof query !== "string") return
+  return eval(query)
+}
+
 function App() {
   const [theme, setTheme] = useState<"light" | "dark" | "saturated">("light")
 
@@ -37,8 +42,8 @@ function App() {
   }
   const submit = async () => {
     if (query !== "") {
+      setQuery(calc(operands.join(' ') + query))
       setOperands([])
-      setQuery(eval(operands.join(' ') + query))
     } else {
       console.log("Cannot submit")
     }
@@ -87,6 +92,12 @@ function App() {
               =
             </Button>
           </div>
+        </div>
+        <div className="attribution">
+          Challenge by
+          <a rel="noreferrer" href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          > Frontend Mentor</a
+          >. Coded by <a href="grimfeld.tech">Grimfeld</a>.
         </div>
       </div>
     </ThemeContext.Provider>
