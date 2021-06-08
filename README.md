@@ -44,12 +44,48 @@ Users should be able to:
 - [Sass](https://sass-lang.com) - CSS Preprocessor
 - [Jest](https://jestjs.io/) - JS Testing Library
 
-### What I learned
+### Code snippets
 
 ```sass
 .wrapper
   width: clamp(calc(500px - 2em), calc(100% - 2em), 750px)
   // A useful function that allows to set the min, preferred and max value of a property
+```
+
+### Problem Solving
+
+In order to properly handle the calculation I stored the data in the _query_ in an array of _operands_ that I then **join()** into a string that I can **eval()** to get the result
+
+```ts
+// Initializing react state for the query and the operands array
+const [query, setQuery] = useState("")
+const [operands, setOperands] = useState<Array<string | number>>([])
+
+// Triggered when a number is pressed on the pad
+const append = (value: string) => setQuery(query.concat(value))
+
+// Triggered when an operator  (+,-,/,*) is pressed on the pad
+const save = (operator: string) => {
+  setOperands([...operands, query, operator])
+  // I push the current query and the operator to the end of the operands using array destructuring
+  setQuery("")
+}
+
+// Triggered when submit is pressed
+const submit = async () => {
+  if (query !== "") {
+    setQuery(calc(operands.join(" ") + query))
+    setOperands([])
+  } else {
+    console.log("Cannot submit")
+  }
+}
+
+// With calc() being:
+const calc = (query: string) => {
+  if (typeof query !== "string") return
+  return eval(query)
+}
 ```
 
 ### Useful resources
